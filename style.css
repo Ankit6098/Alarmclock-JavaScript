@@ -1,0 +1,177 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&family=Poppins&family=Roboto&family=Roboto+Slab&family=Sofia+Sans:ital,wght@0,100;0,200;0,400;1,300&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #222324;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(215, 213, 213);
+}
+
+body.active {
+    background-color: rgb(231, 230, 230);
+    color: rgb(29, 29, 29);
+}
+
+/* .container {
+    width: 17vw;
+    height: 68vh;
+    background-color: rgb(238, 238, 238);
+    border-radius: 40px;
+    box-shadow: 5px 5px 10px black;             
+} */
+
+/* .notch {
+    position: relative;
+    top: 1%;
+    left: 37%;
+    background-color: black;
+    width: 4vw;
+    height: 2.5vh;
+    border-radius: 15px;
+} */
+
+
+.container {
+    width: 75vh;
+    height: 50vh;
+    border-radius: 20px;
+    /* box-shadow: 5px 5px 10px black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.clock {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+span {
+    padding: 5px;
+    font-size: 5rem;
+    font-weight: 600;
+    margin: 10px;
+}
+
+.colon {
+    margin-bottom: 22px;
+}
+
+.side {
+    margin-top: 32px;
+    margin-left: 10px;
+}
+
+.second {
+    font-size: 2rem;
+}
+
+.am-pm {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.days span {
+    padding: 5px;
+    margin: 0;
+}
+
+.month {
+    font-size: 2rem;
+}
+
+.day {
+    font-size: 3rem;
+}
+
+.date {
+    font-size: 3rem;
+}
+
+.local-time-toggle {
+    position: relative;
+    bottom: -27%;
+    right: -45%;
+}
+
+.local-time-toggle-button {
+    padding: 8px 15px;
+    border-radius: 15px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    background-color: #917d07;
+    color: rgb(231, 230, 230);
+    letter-spacing: 1px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 8px black;
+}
+
+.local-time-toggle-button:hover {
+    transform: scale(1.1);
+}
+
+.local-time-toggle-button.active {
+    transform: scale(1.1);
+    background-color: #ccaf09;
+}
+
+.theme-toggle {
+    position: absolute;
+    bottom: 3%;
+    left: 2%;
+    width: auto;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.theme-image {
+    width: 40px;
+    height: 40px;
+}
+
+.theme-image:hover {
+    cursor: pointer;
+}
+
+.display-theme {
+    background-color: rgb(231, 230, 230);
+    font-size: 0.7rem;
+    color: black;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 5px;
+    
+    box-shadow: 2px 2px 5px rgb(189, 189, 189);
+    transition: all 0.3s ease-in-out;
+}
+
+.display-theme.active {
+    background-color: #222324;
+    color: rgb(215, 213, 213);
+    box-shadow: 2px 2px 5px black;
+}
+
+.display-theme:before {
+    width: 50px;
+    width: 50px;
+    background-color: aliceblue;
+}
+
+.theme-toggle:hover .display-theme{
+    cursor: pointer;
+    opacity: 1;
+    pointer-events: auto;
+}
