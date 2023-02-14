@@ -9,6 +9,7 @@ const localTimeToggle = document.querySelector('.local-time-toggle-button');
 const themeToggle = document.querySelector('.theme-image');
 const body = document.getElementsByTagName('body')[0];
 const displayTheme = document.querySelector('.display-theme');
+const displayhr = document.querySelector('.display-hr');
 
 
 // time update
@@ -25,14 +26,22 @@ function updateTime() {
     // 24hr /12hr toggle
     if(localTime === true) {
         displayHour.innerHTML = hour;
-        localTimeToggle.innerHTML = '24hr clock';
+        // localTimeToggle.innerHTML = '24hr clock';
+        displayhr.innerHTML = '24hr'
     } else {
-        let calculatedHour = hour - 12;
-        if (calculatedHour < 10) {
-            displayHour.innerHTML = '0' + calculatedHour;
+        if (hour > 12) {
+            let calculatedHour = hour - 12;
+            if (calculatedHour < 10) {
+                displayHour.innerHTML = '0' + calculatedHour;
+            } else {
+                displayHour.innerHTML = calculatedHour;
+                // localTimeToggle.innerHTML = '12hr clock';
+                displayhr.innerHTML = '12hr'
+            }
+        } else {
+            displayHour.innerHTML = hour;
+            displayhr.innerHTML = '12hr'
         }
-        displayHour.innerHTML = calculatedHour;
-        localTimeToggle.innerHTML = '12hr clock';
     }
     
     // display clock

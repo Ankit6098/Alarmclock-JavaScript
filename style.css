@@ -12,6 +12,7 @@ body {
     background-color: #222324;
     font-family: 'Poppins', sans-serif;
     color: rgb(215, 213, 213);
+    transition: all 0.3s ease-in-out;
 }
 
 body.active {
@@ -103,8 +104,23 @@ span {
     right: -45%;
 }
 
+.display-hr {
+    margin: 0;
+    font-size: 0.9rem;
+}
+
+.button-span {
+    margin: 0;
+    padding: 0;
+    font-size: 0.9rem;
+}
+
+i {
+    font-size: 1rem;
+}
+
 .local-time-toggle-button {
-    padding: 8px 15px;
+    padding: 10px 20px;
     border-radius: 15px;
     font-size: 0.9rem;
     font-weight: 600;
@@ -115,6 +131,9 @@ span {
     letter-spacing: 1px;
     transition: all 0.3s ease-in-out;
     box-shadow: 2px 2px 8px black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .local-time-toggle-button:hover {
@@ -135,11 +154,17 @@ span {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .theme-image {
     width: 40px;
     height: 40px;
+    filter: drop-shadow(0px 0px 10px rgb(230, 190, 15));
+}
+
+.theme-image.active{
+    filter: drop-shadow(0px 0px 3px rgb(97, 96, 96));
 }
 
 .theme-image:hover {
@@ -153,9 +178,8 @@ span {
     opacity: 0;
     pointer-events: none;
     border-radius: 5px;
-    
     box-shadow: 2px 2px 5px rgb(189, 189, 189);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 }
 
 .display-theme.active {
@@ -171,7 +195,12 @@ span {
 }
 
 .theme-toggle:hover .display-theme{
-    cursor: pointer;
     opacity: 1;
     pointer-events: auto;
+}
+
+.add-img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0) invert(0.75);
 }
