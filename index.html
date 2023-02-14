@@ -13,33 +13,52 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="clock">
-            <span class="hour">00</span>
-            <span class="colon">:</span>
-            <span class="minute">00</span>
-            <span class="colon">:</span>
-            <div class="side">
-                <span class="second">00</span>
-                <span class="am-pm">--</span>
+    <div class="main-container">
+        <div class="clock-container">
+            <div class="clock">
+                <span class="hour">00</span>
+                <span class="colon">:</span>
+                <span class="minute">00</span>
+                <span class="colon">:</span>
+                <div class="side">
+                    <span class="second">00</span>
+                    <span class="am-pm">--</span>
+                </div>
+            </div>
+            <div class="days">
+                <span class="month">---</span>
+                <span class="day">---</span>
+                <span class="date">--</span>
+            </div>
+            <div class="add-alarm">
+                <img src="https://cdn-icons-png.flaticon.com/512/3524/3524388.png" alt="add-alarm" class="add-img">
+                <div><span class="display-add-alarm">Add Alarm</span></div>
+            </div>
+            <div class="set-alarm">
+                <p class="set-alarm-heading">Set Alarm</p>
+                <div class="alarm-input">
+                    <input type="text" value="" class="set-hour" required="required" placeholder="Hour">
+                    <input type="text" value="" class="set-minute" required="required" placeholder="Minute">
+                    <div class="set-am-pm">
+                        <div class="set-am">AM</div>
+                        <div>:</div>
+                        <div class="set-pm">PM</div>
+                    </div>
+                </div>
+                <div class="alarm-buttons">
+                    <button class="set-alarm-button">Set Alarm</button>
+                    <button class="cancel-alarm-button">Cancle Alarm</button>
+                </div>
             </div>
         </div>
-        <div class="days">
-            <span class="month">---</span>
-            <span class="day">---</span>
-            <span class="date">--</span>
-        </div>
         <div class="local-time-toggle">
-            <button class="local-time-toggle-button"><span class="display-hr">- - - -</span><span class="button-span"><i class="fa-regular fa-clock"></i></button>
-        </div>
-        <div class="add-alarm">
-            <img src="https://cdn-icons-png.flaticon.com/512/3524/3524388.png" alt="add-alarm" class="add-img">
-            <div class="display-add-alarm"><span>Add Alarm</span></div>
+            <button class="local-time-toggle-button"><span class="display-hr">- - - -</span><span class="button-span"><i
+                        class="fa-regular fa-clock"></i></button>
         </div>
     </div>
     <div class="theme-toggle">
-        <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="" class="theme-image">
         <span class="display-theme">You are in Dark mode</span>
+        <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="" class="theme-image">
     </div>
     <script src="script.js"></script>
 </body>

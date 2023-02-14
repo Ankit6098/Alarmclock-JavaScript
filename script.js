@@ -11,7 +11,10 @@ const body = document.getElementsByTagName('body')[0];
 const displayTheme = document.querySelector('.display-theme');
 const displayhr = document.querySelector('.display-hr');
 const addAlarm = document.querySelector('.add-img');
-
+const addAlarmDisplay = document.querySelector('.display-add-alarm');
+const setAlarm = document.querySelector('.set-alarm');
+const setAm = document.querySelector('.set-am');
+const setPm = document.querySelector('.set-pm');
 
 // time update
 function updateTime() {
@@ -92,13 +95,15 @@ themeToggle.onclick = function() {
     themeToggle.classList.toggle('active');
     body.classList.toggle('active');
     displayTheme.classList.toggle('active');
-    addAlarm.classList.toggle('alarm-dark')
+    addAlarm.classList.toggle('alarm-dark');
+    addAlarmDisplay.classList.toggle('active');
+    setAlarm.classList.toggle('dark')
     if (document.body.classList.contains('active')) {
         themeToggle.src = "https://cdn-icons-png.flaticon.com/512/581/581601.png";
-        displayTheme.innerHTML = "You are in Light Mode"
+        displayTheme.innerHTML = "You are in Light Mode";
     } else {
         themeToggle.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
-        displayTheme.innerHTML = "You are in Dark Mode"
+        displayTheme.innerHTML = "You are in Dark Mode";
     }
 }
 
@@ -106,4 +111,19 @@ themeToggle.onclick = function() {
 
 addAlarm.onclick = function() {
     addAlarm.classList.toggle('active');
+    setAlarm.classList.toggle('active');
+}
+
+setPm.onclick = function() {
+    setAm.classList.remove('active');
+    setAm.classList.add('unactive');
+    setPm.classList.remove('unactive')
+    setPm.classList.add('active');
+}
+
+setAm.onclick = function() {
+    setAm.classList.remove('unactive');
+    setAm.classList.add('active');
+    setPm.classList.remove('active')
+    setPm.classList.add('unactive');
 }

@@ -8,6 +8,7 @@ body {
     box-sizing: border-box;
     display: flex;
     justify-content: center;
+    flex-direction: column;
     align-items: center;
     background-color: #222324;
     font-family: 'Poppins', sans-serif;
@@ -39,9 +40,9 @@ body.active {
 } */
 
 
-.container {
+.clock-container {
     width: auto;
-    height: 70vh;
+    height: auto;
     border-radius: 20px;
     /* box-shadow: 5px 5px 10px black; */
     display: flex;
@@ -87,21 +88,15 @@ span {
 }
 
 .month {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .day {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .date {
-    font-size: 3rem;
-}
-
-.local-time-toggle {
-    position: relative;
-    bottom: -27%;
-    right: -45%;
+    font-size: 2.5rem;
 }
 
 .display-hr {
@@ -120,6 +115,12 @@ i {
     font-size: 1rem;
 }
 
+.local-time-toggle {
+    display: flex;
+    justify-content: flex-end;
+    margin: 30px 10px;
+}
+
 .local-time-toggle-button {
     padding: 4px 23px;
     border-radius: 15px;
@@ -127,7 +128,8 @@ i {
     font-weight: 600;
     border: none;
     cursor: pointer;
-    background-color: #917d07;
+    /* background-color: #917d07; */
+    background-color: #f45c48;
     color: rgb(231, 230, 230);
     letter-spacing: 1px;
     transition: all 0.3s ease-in-out;
@@ -143,13 +145,14 @@ i {
 
 .local-time-toggle-button.active {
     transform: scale(1.1);
-    background-color: #ccaf09;
+    /* background-color: #ab9207; */
+    background-color: #FF1E00;
 }
 
 .theme-toggle {
     position: absolute;
-    bottom: 3%;
-    left: 2%;
+    top: 1.5%;
+    right: 1%;
     width: auto;
     height: 50px;
     display: flex;
@@ -208,15 +211,16 @@ i {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    margin: 10px;
 }
 
 .add-img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     filter: brightness(0) invert(0.8);
     transition: all 0.3s ease-in-out;
     cursor: pointer;
-    margin-bottom: 10px;
+    margin: 10px;
 }
 
 .add-img.alarm-dark {
@@ -224,10 +228,11 @@ i {
 }
 
 .add-img.active {
+    transform: rotate(135deg) scale(1.4);
     filter: brightness(0) invert(1);
 }
 
-.display-add-alarm span {
+.display-add-alarm {
     background-color: rgb(215, 213, 213);
     color: black;
     letter-spacing: 1px;
@@ -238,9 +243,14 @@ i {
     box-shadow: 1px 1px 3px white;
 }
 
-.add-alarm:hover .display-add-alarm span {
+.add-alarm:hover .display-add-alarm {
     opacity: 1;
     pointer-events: auto;
+}
+
+.add-alarm.active:hover .display-add-alarm {
+    opacity: 0;
+    pointer-events: none;
 }
 
 .display-add-alarm::before {
@@ -248,4 +258,158 @@ i {
     width: 50px;
     height: 50px;
     background-color: white;
+}
+
+.display-add-alarm.active {
+    background-color: #222324;
+    color: white;
+    box-shadow: 2px 2px 5px black;
+}
+
+/* set alarm section */
+
+.set-alarm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15px;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow:  5px 5px 20px rgb(19, 19, 19);
+    transition: all 0.3s ease-in;
+    display: none;
+}
+
+.set-alarm.active {
+    transition: all 0.3s ease-in-out;
+    display: block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.set-alarm.dark {
+    box-shadow: 5px 5px 10px rgb(210, 210, 210);
+}
+
+.set-alarm-heading {
+    margin-top: 0;
+    font-size: 0.9rem;
+}
+
+.alarm-input {
+    display: flex;
+}
+
+input{
+    margin: 0px 10px;
+}
+
+.set-am-pm {
+    display: flex;
+    margin-left: 10px;
+}
+
+.set-hour {
+    width: 5vw;
+    height: 1vh;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+}
+
+.set-hour:focus {
+    outline: none;
+}
+
+.set-minute {
+    width: 5vw;
+    height: 1vh;
+    padding: 10px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 6px;
+    border: none;
+}
+
+.set-minute:focus {
+    outline: none;
+}
+
+.set-alarm-button {
+    width: 9vw;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FF1E00;
+    color: white;
+    margin: 20px 10px;
+    cursor: pointer;
+}
+
+.cancel-alarm-button {
+    width: 9vw;
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding: 8px;
+    border-radius: 5px;
+    border: none;
+    background-color: #FF1E00;
+    color: white;
+    margin: 20px 10px;
+    cursor: pointer;
+}
+
+.set-am-pm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.9rem;
+    /* border-radius: 7px;
+    padding: 5px;
+    box-shadow: 2px 2px 10px black; */
+}
+
+.set-am {
+    /* padding: 2px;
+    background-color: #FF1E00;
+    border-radius: 7px 0px 0px 7px;
+    font-weight: 600; */
+    margin: 0px 5px;
+    color: #FF1E00;
+    cursor: pointer;
+}
+
+.set-pm {
+    /* padding: 2px;
+    border-radius: 0px 7px 7px 0px; */
+    margin: 0px 5px;
+    cursor: pointer;
+}
+
+.set-am.active {
+    font-weight: 600;
+    color: red;
+}
+
+.set-am.unactive {
+    font-weight: 400;
+    color: white;
+}
+
+.set-pm.active {
+    font-weight: 600;
+    color: #FF1E00;
+}
+
+.set-pm.unactive {
+    font-weight: 500;
+    color: white;
 }
