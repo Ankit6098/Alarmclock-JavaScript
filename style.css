@@ -383,7 +383,6 @@ input{
     border-radius: 7px 0px 0px 7px;
     font-weight: 600; */
     margin: 0px 5px;
-    color: #FF1E00;
     cursor: pointer;
 }
 
@@ -394,22 +393,18 @@ input{
     cursor: pointer;
 }
 
-.set-am.active {
-    font-weight: 600;
+/* .set-am.active {
     color: red;
 }
 
 .set-am.unactive {
-    font-weight: 400;
     color: white;
 }
 
 .set-pm.active {
-    font-weight: 600;
     color: #FF1E00;
 }
 
 .set-pm.unactive {
-    font-weight: 500;
     color: white;
-}
+} */

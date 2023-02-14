@@ -13,8 +13,10 @@ const displayhr = document.querySelector('.display-hr');
 const addAlarm = document.querySelector('.add-img');
 const addAlarmDisplay = document.querySelector('.display-add-alarm');
 const setAlarm = document.querySelector('.set-alarm');
-const setAm = document.querySelector('.set-am');
-const setPm = document.querySelector('.set-pm');
+const setAmPm = document.getElementById('set-am-pm')
+const setAm = document.getElementById('set-am');
+const setPm = document.getElementById('set-pm');
+const hourInput = document.getElementById('set-hour');
 
 // time update
 function updateTime() {
@@ -28,7 +30,7 @@ function updateTime() {
     const todayDate = formatTime(date.getDate());
 
     // 24hr /12hr toggle
-    if(localTime === true) {
+    if(localTime) {
         displayHour.innerHTML = hour;
         // localTimeToggle.innerHTML = '24hr clock';
         displayhr.innerHTML = '24hr'
@@ -114,16 +116,39 @@ addAlarm.onclick = function() {
     setAlarm.classList.toggle('active');
 }
 
-setPm.onclick = function() {
-    setAm.classList.remove('active');
-    setAm.classList.add('unactive');
-    setPm.classList.remove('unactive')
-    setPm.classList.add('active');
+// setPm.onclick = function() {
+//     setAm.classList.remove('active');
+//     setAm.classList.add('unactive');
+//     setPm.classList.remove('unactive')
+//     setPm.classList.add('active');
+// }
+
+// setAm.onclick = function() {
+//     setAm.classList.remove('unactive');
+//     setAm.classList.add('active');
+//     setPm.classList.remove('active')
+//     setPm.classList.add('unactive');
+// }
+
+let amPm = true;
+setAmPm.onclick = function() {
+    setPm.classList.toggle('active');
+    amPm = !amPm;
+    console.log(amPm);
+    return amPm;
 }
 
-setAm.onclick = function() {
-    setAm.classList.remove('unactive');
-    setAm.classList.add('active');
-    setPm.classList.remove('active')
-    setPm.classList.add('unactive');
+if (amPm) {
+    setAm.style.color = "red";
+    setPm.style.color = "white";
+} else {
+    setAm.style.color = "white"; 
+    setPm.style.color = "red";
 }
+
+
+
+
+// getting data to set alarm
+
+hourInput.get
