@@ -10,6 +10,7 @@ const themeToggle = document.querySelector('.theme-image');
 const body = document.getElementsByTagName('body')[0];
 const displayTheme = document.querySelector('.display-theme');
 const displayhr = document.querySelector('.display-hr');
+const addAlarm = document.querySelector('.add-img');
 
 
 // time update
@@ -33,6 +34,7 @@ function updateTime() {
             let calculatedHour = hour - 12;
             if (calculatedHour < 10) {
                 displayHour.innerHTML = '0' + calculatedHour;
+                displayhr.innerHTML = '12hr'
             } else {
                 displayHour.innerHTML = calculatedHour;
                 // localTimeToggle.innerHTML = '12hr clock';
@@ -90,6 +92,7 @@ themeToggle.onclick = function() {
     themeToggle.classList.toggle('active');
     body.classList.toggle('active');
     displayTheme.classList.toggle('active');
+    addAlarm.classList.toggle('alarm-dark')
     if (document.body.classList.contains('active')) {
         themeToggle.src = "https://cdn-icons-png.flaticon.com/512/581/581601.png";
         displayTheme.innerHTML = "You are in Light Mode"
@@ -97,4 +100,10 @@ themeToggle.onclick = function() {
         themeToggle.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
         displayTheme.innerHTML = "You are in Dark Mode"
     }
+}
+
+// alarm
+
+addAlarm.onclick = function() {
+    addAlarm.classList.toggle('active');
 }

@@ -40,8 +40,8 @@ body.active {
 
 
 .container {
-    width: 75vh;
-    height: 50vh;
+    width: auto;
+    height: 70vh;
     border-radius: 20px;
     /* box-shadow: 5px 5px 10px black; */
     display: flex;
@@ -107,6 +107,7 @@ span {
 .display-hr {
     margin: 0;
     font-size: 0.9rem;
+    letter-spacing: 2px;
 }
 
 .button-span {
@@ -120,7 +121,7 @@ i {
 }
 
 .local-time-toggle-button {
-    padding: 10px 20px;
+    padding: 4px 23px;
     border-radius: 15px;
     font-size: 0.9rem;
     font-weight: 600;
@@ -189,6 +190,7 @@ i {
 }
 
 .display-theme:before {
+    position: absolute;
     width: 50px;
     width: 50px;
     background-color: aliceblue;
@@ -199,8 +201,51 @@ i {
     pointer-events: auto;
 }
 
+/* alarm section */
+
+.add-alarm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
 .add-img {
     width: 40px;
     height: 40px;
-    filter: brightness(0) invert(0.75);
+    filter: brightness(0) invert(0.8);
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.add-img.alarm-dark {
+    filter: brightness(0.5) invert(0);
+}
+
+.add-img.active {
+    filter: brightness(0) invert(1);
+}
+
+.display-add-alarm span {
+    background-color: rgb(215, 213, 213);
+    color: black;
+    letter-spacing: 1px;
+    font-size: 0.6rem;
+    opacity: 0;
+    pointer-events: none;
+    border-radius: 5px;
+    box-shadow: 1px 1px 3px white;
+}
+
+.add-alarm:hover .display-add-alarm span {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.display-add-alarm::before {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background-color: white;
 }
