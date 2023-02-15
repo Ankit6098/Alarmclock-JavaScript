@@ -227,6 +227,11 @@ i {
     filter: brightness(0.5) invert(0);
 }
 
+.add-img.alarm-dark.dark.active {
+    filter: brightness(0.5) invert(0);
+
+}
+
 .add-img.active {
     transform: rotate(135deg) scale(1.1);
     filter: brightness(0) invert(1);
@@ -275,16 +280,18 @@ input::-webkit-inner-spin-button {
 }
 
 .set-alarm {
+    width: 25vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    justify-content: space-between;
     margin-top: 15px;
-    padding: 30px;
-    padding-bottom: 10px;
+    padding: 40px;
+    padding-bottom: 20px;
     border-radius: 10px;
     box-shadow:  5px 5px 20px rgb(19, 19, 19);
-    transition: all 0.3s ease-in;
+    transition: all 0.5s ease-in-out;
     display: none;
 }
 
@@ -297,12 +304,14 @@ input::-webkit-inner-spin-button {
 }
 
 .set-alarm.dark {
-    box-shadow: 5px 5px 10px rgb(210, 210, 210);
+    box-shadow: 5px 5px 10px rgb(210, 210, 210),
+    inset 5px 5px 10px rgb(228, 228, 228);
 }
 
 .set-alarm-heading {
     margin-top: 0;
     font-size: 0.9rem;
+    font-weight: 600;
 }
 
 .alarm-input {
@@ -319,14 +328,14 @@ input{
 }
 
 .set-hour {
-    -webkit-appearance: none;
     width: 5vw;
-    height: 1vh;
+    height: 2vh;
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     border-radius: 6px;
     border: none;
+    box-shadow: inset -5px -5px 5px rgb(211, 209, 209);
 }
 
 .set-hour:focus {
@@ -335,12 +344,13 @@ input{
 
 .set-minute {
     width: 5vw;
-    height: 1vh;
+    height: 2vh;
     padding: 10px;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 600;
     border-radius: 6px;
     border: none;
+    box-shadow: inset -5px -5px 5px rgb(211, 209, 209);
 }
 
 .set-minute:focus {
@@ -352,34 +362,19 @@ input{
 }
 
 .set-alarm-button {
-    width: 15vw;
+    width: 7vw;
     font-size: 1rem;
     font-weight: 600;
     letter-spacing: 1px;
     padding: 8px;
-    border-radius: 5px;
+    border-radius: 10px;
     border: none;
     background-color: #FF1E00;
+    box-shadow: 4px 4px 10px rgb(43, 43, 43);
     color: white;
     margin: 20px 10px;
     cursor: pointer;
 }
-
-/* .cancel-alarm-button {
-    width: 9vw;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 1px;
-    padding: 8px;
-    border-radius: 5px;
-    border: none;
-    background-color: #FF1E00;
-    color: white;
-    margin: 20px 10px;
-    cursor: pointer;
-    display: none;
-    transition: all 0.3s ease-in-out;
-} */
 
 .set-am-pm {
     display: flex;
@@ -401,4 +396,83 @@ input{
 
 .set-am-active {
     color: red;
+}
+
+/* responsive */
+
+/* laptop*/
+
+@media screen and (max-width: 1420px){
+    .set-alarm-button {
+        width: 10vw;
+    }
+}
+
+
+/* tab */
+
+@media screen and (max-width: 920px){
+
+    .set-alarm {
+        width: 50vw;
+    }
+
+    .set-hour {
+        width: 10vw;
+    }
+
+    .set-minute {
+        width: 10vw;
+    }
+
+    .set-alarm-button {
+        width: 15vw;
+    }
+}
+
+/* mobile */
+
+@media screen and (max-width: 500px){
+    span {
+        font-size: 3.5rem;
+    }
+
+    .colon {
+        font-size: 2.5rem;
+    }
+
+    .side {
+        margin-left: 0px;
+        margin-bottom: 10px;
+    }
+
+    .second {
+        font-size: 1rem;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .am-pm {
+        font-size: 1rem;
+        margin-left: 0px;
+        padding: 0px;
+    }
+
+    .set-alarm {
+         width: 70vw;
+    }
+
+    .set-hour {
+        width: 20vw;
+        height: 3vh;
+    }
+
+    .set-minute {
+        width: 20vw;
+        height: 3vh;
+    }
+
+    .set-alarm-button {
+        width: 30vw;
+    }
 }

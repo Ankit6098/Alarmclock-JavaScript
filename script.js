@@ -19,7 +19,6 @@ const setAmPm = document.getElementById('set-am-pm')
 const setAlarmButton = document.querySelector('.set-alarm-button');
 const cancelAlarmbutton = document.querySelector('.cancel-alarm-button')
 
-
 alarmRingtone = new Audio("./ringtones/alexa ringtone.mp3");
 
 
@@ -118,7 +117,8 @@ themeToggle.onclick = function () {
     displayTheme.classList.toggle('active');
     addAlarm.classList.toggle('alarm-dark');
     addAlarmDisplay.classList.toggle('dark');
-    setAlarm.classList.toggle('dark')
+    setAlarm.classList.toggle('dark');
+    addAlarm.classList.toggle('dark');
     if (document.body.classList.contains('active')) {
         themeToggle.src = "https://cdn-icons-png.flaticon.com/512/581/581601.png";
         displayTheme.innerHTML = "You are in Light Mode";
@@ -148,16 +148,30 @@ setAmPm.onclick = function () {
     const setAm = document.getElementById('set-am');
     const setPm = document.getElementById('set-pm');
     setAmPm.classList.toggle('unactive');
-    if (setAmPm.classList.contains('unactive')) {
-        setPm.style.color = "red";
-        setPm.style.fontWeight = "600";
-        setAm.style.fontWeight = "500";
-        setAm.style.color = 'white';
+    if (body.classList.contains('active')) {
+        if (setAmPm.classList.contains('unactive')) {
+            setPm.style.color = "red";
+            setPm.style.fontWeight = "600";
+            setAm.style.fontWeight = "500";
+            setAm.style.color = 'black';
+        } else {
+            setAm.style.color = "red";
+            setAm.style.fontWeight = "600";
+            setPm.style.fontWeight = "500";
+            setPm.style.color = "black"
+        }
     } else {
-        setAm.style.color = "red";
-        setAm.style.fontWeight = "600";
-        setPm.style.fontWeight = "500";
-        setPm.style.color = "white"
+        if (setAmPm.classList.contains('unactive')) {
+            setPm.style.color = "red";
+            setPm.style.fontWeight = "600";
+            setAm.style.fontWeight = "500";
+            setAm.style.color = 'white';
+        } else {
+            setAm.style.color = "red";
+            setAm.style.fontWeight = "600";
+            setPm.style.fontWeight = "500";
+            setPm.style.color = "white"
+        }
     }
 }
 
