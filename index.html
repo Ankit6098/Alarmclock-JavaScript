@@ -8,12 +8,15 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/9099/9099672.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
     <!-- https://cdn-icons-png.flaticon.com/512/2994/2994793.png -->
     <title>Alarm Clock</title>
 </head>
 
 <body>
     <div class="main-container">
+
+        <!-- clock section -->
         <div class="clock-container">
             <div class="clock">
                 <span class="hour">00</span>
@@ -28,17 +31,22 @@
             <div class="days">
                 <span class="month">---</span>
                 <span class="day">---</span>
-                <span class="date">--</span>
+                <span class="date">00</span>
             </div>
             <div class="add-alarm">
                 <img src="https://cdn-icons-png.flaticon.com/512/3524/3524388.png" alt="add-alarm" class="add-img">
                 <div><span class="display-add-alarm">Add Alarm</span></div>
             </div>
+
+            <!-- set alarm section -->
             <div class="set-alarm">
                 <p class="set-alarm-heading">Set Alarm</p>
                 <div class="alarm-input">
-                    <input type="number" class="set-hour" id="set-hour" required="required" placeholder="Hour">
-                    <input type="number" class="set-minute" id="set-minute" required="required" placeholder="Minute">
+                    <div>
+                        <input type="number" class="set-hour" id="set-hour" required="required" placeholder="Hour" minlength="2">
+                        <input type="number" class="set-minute" id="set-minute" required="required" placeholder="Minute" minlength="2">
+                        <input type="number" class="set-sec" id="set-sec" required="required" placeholder="Second" minlength="2">
+                    </div>
                     <div class="set-am-pm" id="set-am-pm">
                         <div class="set-am set-am-active" id="set-am">AM</div>
                         <div>:</div>
@@ -50,14 +58,60 @@
                 </div>
             </div>
         </div>
+        
+        <!-- alarm list section -->
+        <div class="alrm-list-section">
+            <ul class="alarm-list">
+                <!-- <li>
+
+                </li> -->
+            </ul>
+        </div>
+
+        <!-- time toggle section -->
         <div class="local-time-toggle">
             <button class="local-time-toggle-button"><span class="display-hr">- - - -</span><span class="button-span"><i
                         class="fa-regular fa-clock"></i></button>
         </div>
     </div>
+
+
+
+
+
+
+
+    <!-- other stuff section-->
     <div class="theme-toggle">
         <span class="display-theme">You are in Dark mode</span>
         <img src="https://cdn-icons-png.flaticon.com/512/869/869869.png" alt="" class="theme-image">
+    </div>
+    <div class="alarm-set-alert">
+        <div class="warning">
+        <div class="warning-img"><i class="fa-solid fa-check"></i></div>
+        <div class="msg">Sucessfull: Alarm has been Set!</div>
+        </div>
+        <div class="close-set-alarm-button">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+    <div class="alarm-stop-alert">
+        <div class="warning">
+        <div class="warning-img"><i class="fa-solid fa-check"></i></i></div>
+        <div class="msg">Sucessfull: Alarm has been Stop!</div>
+        </div>
+        <div class="close-stop-alarm-button">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+    <div class="alarm-input-alert">
+        <div class="warning">
+        <div class="warning-img"><i class="fa-solid fa-exclamation"></i></div>
+        <div class="msg">Warning: Field can not be Empty</div>
+        </div>
+        <div class="close-input-alarm-button">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
     </div>
     <script src="script.js"></script>
 </body>
