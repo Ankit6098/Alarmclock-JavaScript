@@ -43,13 +43,13 @@
                 <p class="set-alarm-heading">Set Alarm</p>
                 <div class="alarm-input">
                     <div>
-                        <input type="number" class="set-hour" id="set-hour" required="required" placeholder="Hour" minlength="2">
-                        <input type="number" class="set-minute" id="set-minute" required="required" placeholder="Minute" minlength="2">
-                        <input type="number" class="set-sec" id="set-sec" required="required" placeholder="Second" minlength="2">
+                        <input type="number" class="set-hour" id="set-hour" required="required" placeholder="Hour">
+                        <input type="number" class="set-minute" id="set-minute" required="required" placeholder="Minute">
+                        <input type="number" class="set-sec" id="set-sec" required="required" placeholder="Second">
                     </div>
                     <div class="set-am-pm" id="set-am-pm">
                         <div class="set-am set-am-active" id="set-am">AM</div>
-                        <div>:</div>
+                        <div>-</div>
                         <div class="set-pm" id="set-pm">PM</div>
                     </div>
                 </div>
@@ -58,20 +58,20 @@
                 </div>
             </div>
         </div>
-        
-        <!-- alarm list section -->
-        <div class="alrm-list-section">
-            <ul class="alarm-list">
-                <!-- <li>
-
-                </li> -->
-            </ul>
-        </div>
 
         <!-- time toggle section -->
         <div class="local-time-toggle">
             <button class="local-time-toggle-button"><span class="display-hr">- - - -</span><span class="button-span"><i
                         class="fa-regular fa-clock"></i></button>
+        </div>
+
+        <!-- alarm list section -->
+        <div class="alarm-list-section" id="alarm-list">
+            <ul class="alarm-list">
+                <!-- <li>
+
+                </li> -->
+            </ul>
         </div>
     </div>
 
@@ -98,7 +98,7 @@
     <div class="alarm-stop-alert">
         <div class="warning">
         <div class="warning-img"><i class="fa-solid fa-check"></i></i></div>
-        <div class="msg">Sucessfull: Alarm has been Stop!</div>
+        <div class="msg">Sucessfull: Alarm has been Deleted!</div>
         </div>
         <div class="close-stop-alarm-button">
             <i class="fa-solid fa-xmark"></i>
@@ -110,6 +110,15 @@
         <div class="msg">Warning: Field can not be Empty</div>
         </div>
         <div class="close-input-alarm-button">
+            <i class="fa-solid fa-xmark"></i>
+        </div>
+    </div>
+    <div class="alarm-invalid-input-alert">
+        <div class="warning">
+        <div class="warning-img"><i class="fa-solid fa-exclamation"></i></div>
+        <div class="msg">Warning: Invalid Input</div>
+        </div>
+        <div class="close-invalid-input-alarm-button">
             <i class="fa-solid fa-xmark"></i>
         </div>
     </div>
