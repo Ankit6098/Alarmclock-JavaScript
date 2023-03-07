@@ -59,7 +59,6 @@ function updateTime() {
                     if(alarmListArr[i].hourInput == calculatedHour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
                         console.log('alarm1');
                         alarmRingtone.play();
-                        alarmListArr.splice(i, 1);
                     }
                 }
             } else {
@@ -119,9 +118,8 @@ function getMonth(monthNumber) {
 
 // fetch the day
 function getDay(dayNumber) {
-    const daysArr = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"];
+    const daysArr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
     return daysArr[dayNumber];
-
 }
 
 
