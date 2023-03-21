@@ -24,6 +24,9 @@ const deleteButton = document.getElementById('delete');
 
 // alarm ringing
 const alarmRingningDiv = document.getElementById('alarm-ringing');
+const circle = document.getElementsByTagName('circle');
+const snoozeWave = document.querySelector('.wave');
+const snoozeText = document.querySelector('.snooze-text');
 
 alarmRingtone = new Audio("./ringtones/alexa ringtone.mp3");
 
@@ -141,7 +144,6 @@ localTimeToggle.onclick = function () {
 }
 
 
-
 // dark / light theme toggle
 themeToggle.onclick = function () {
     themeToggle.classList.toggle('active');
@@ -158,6 +160,11 @@ themeToggle.onclick = function () {
         themeToggle.src = "https://cdn-icons-png.flaticon.com/512/581/581601.png";
         displayTheme.innerHTML = "You are in Dark Mode";
     }
+    for (let i = 0; i < circle.length; i++) {
+        circle[i].classList.toggle('active');
+    }
+    snoozeWave.classList.toggle('active');
+    snoozeText.classList.toggle('active');
 }
 
 
@@ -318,7 +325,6 @@ snooze.addEventListener('click', function () {
         alarmRingningDiv.style.display = "block";
     }, 50000);
 });
-
 
 
 document.addEventListener('click', function (e) {

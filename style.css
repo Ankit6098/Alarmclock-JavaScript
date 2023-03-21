@@ -725,15 +725,14 @@ list {
 
 /* alarm ringing section */
 
+/* stop alarm section */
+
 #alarm-ringing {
     position: absolute;
     top: 0%;
     width: 100vw;
     height: 100vh;
-    /* background-image: url(./images/milad-fakurian-u8Jn2rzYIps-unsplash.jpg); */
-    /* background-size: cover; */
-    /* background-color: #181a1b; */
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -758,6 +757,8 @@ circle {
     -webkit-animation: pulse 2.5s ease-in-out infinite;
             animation: pulse 2.5s ease-in-out infinite;
 }
+
+/* dark mode */
 
 circle:nth-child(1) {
     fill: #662794;
@@ -787,6 +788,28 @@ circle:nth-child(5) {
     fill: #f6dafc;
     -webkit-animation: none;
             animation: none;
+}
+
+/* light mode */
+
+circle.active:nth-child(1) {
+    fill: #222424;
+}
+
+circle.active:nth-child(2) {
+    fill: #353535;
+}
+
+circle.active:nth-child(3) {
+    fill: #4c4c4b;
+}
+
+circle.active:nth-child(4) {
+    fill: #676664;
+}
+
+circle.active:nth-child(5) {
+    fill: white;
 }
 
 @-webkit-keyframes pulse {
@@ -836,7 +859,7 @@ circle:nth-child(5) {
 text {
     cursor: pointer;
     font-size: 0.5rem;
-    font-weight: 800;
+    font-weight: bold;
     color: black;
     letter-spacing: 1px;
 }
@@ -860,7 +883,10 @@ text {
   position:absolute; 
   -webkit-animation:example 1.5s linear infinite;   
   animation:example 1.5s linear infinite;  
- 
+}
+
+.wave.active {
+    background-color:white;
 }
 
 .delay1{
@@ -898,6 +924,10 @@ text {
     font-family: poppins;
     font-weight: 600;
     letter-spacing: 2px;
+}
+
+.snooze-text.active {
+    color: rgb(221, 218, 218);
 }
 
   
