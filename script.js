@@ -22,6 +22,9 @@ const cancelAlarmbutton = document.querySelector('.cancel-alarm-button')
 const alarmList = document.getElementById('alarm-list');
 const deleteButton = document.getElementById('delete');
 
+// alarm ringing
+const alarmRingningDiv = document.getElementById('alarm-ringing');
+
 alarmRingtone = new Audio("./ringtones/alexa ringtone.mp3");
 
 let alarmListArr = [];
@@ -42,13 +45,14 @@ function updateTime() {
     if (localTime) {
         displayHour.innerHTML = hour;
         displayhr.innerHTML = '24hr';
-        // for(let i = 0; i < alarmListArr.length; i++) {
-        //     if(alarmListArr[i].hourInput == hour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
-        //         console.log('alarm1');
-        //         alarmRingtone.play();
-        //         alarmListArr.splice(i, 1);
-        //     }
-        // }
+        for(let i = 0; i < alarmListArr.length; i++) {
+            if(alarmListArr[i].hourInput == hour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
+                console.log('alarm1');
+                alarmRingtone.play();
+                alarmRingtone.loop = true;
+                alarmRingningDiv.style.display = 'block';
+            }
+        }
     } else {
         if (hour > 12) {
             var calculatedHour = hour - 12;
@@ -59,29 +63,33 @@ function updateTime() {
                     if(alarmListArr[i].hourInput == calculatedHour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
                         console.log('alarm1');
                         alarmRingtone.play();
+                        alarmRingtone.loop = true;
+                        alarmRingningDiv.style.display = 'block';
                     }
                 }
             } else {
                 displayHour.innerHTML = calculatedHour;
                 displayhr.innerHTML = '12hr';
-                // for(let i = 0; i < alarmListArr.length; i++) {
-                //     if(alarmListArr[i].hourInput == calculatedHour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
-                //         console.log('alarm1');
-                //         alarmRingtone.play();
-                //         alarmListArr.splice(i, 1);
-                //     }
-                // }
+                for(let i = 0; i < alarmListArr.length; i++) {
+                    if(alarmListArr[i].hourInput == calculatedHour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
+                        console.log('alarm1');
+                        alarmRingtone.play();
+                        alarmRingtone.loop = true;
+                        alarmRingningDiv.style.display = 'block';
+                    }
+                }
             }
         } else {
             displayHour.innerHTML = hour;
             displayhr.innerHTML = '12hr';
-            // for(let i = 0; i < alarmListArr.length; i++) {
-            //     if(alarmListArr[i].hourInput == hour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
-            //         console.log('alarm1');
-            //         alarmRingtone.play();
-            //         alarmListArr.splice(i, 1);
-            //     }
-            // }
+            for(let i = 0; i < alarmListArr.length; i++) {
+                if(alarmListArr[i].hourInput == hour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
+                    console.log('alarm1');
+                    alarmRingtone.play();
+                    alarmRingtone.loop = true;
+                    alarmRingningDiv.style.display = 'block';
+                }
+            }
         }
     }
 
@@ -144,10 +152,10 @@ themeToggle.onclick = function () {
     setAlarm.classList.toggle('dark');
     addAlarm.classList.toggle('dark');
     if (document.body.classList.contains('active')) {
-        themeToggle.src = "https://cdn-icons-png.flaticon.com/512/581/581601.png";
+        themeToggle.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
         displayTheme.innerHTML = "You are in Light Mode";
     } else {
-        themeToggle.src = "https://cdn-icons-png.flaticon.com/512/869/869869.png";
+        themeToggle.src = "https://cdn-icons-png.flaticon.com/512/581/581601.png";
         displayTheme.innerHTML = "You are in Dark Mode";
     }
 }
@@ -219,9 +227,9 @@ setAlarmButton.onclick = function () {
     }
 
     if (hourInput.value == "" || minuteInput.value == "" || secInput.value == "") {
-        inputWarning();
+        showWarning("Warning: Please Enter All Fields!")
     } else if (hourInput.value > 23 || minuteInput.value > 60 || secInput.value > 60 || hourInput.value < 0 || minuteInput.value < 0 || secInput.value < 0) {
-        invalidInputWarning();
+        showWarning("Warning: Please Enter Valid Time!")
     } else {
         if (hourInput.value > 12) {
             hourInput.value = hourInput.value - 12;  
@@ -232,7 +240,7 @@ setAlarmButton.onclick = function () {
         if (minuteInput.value < 10) {
             minuteInput.value = '0' + minuteInput.value;
         }
-        alarmSetWarning();
+        showNotification('Sucessfull: Alarm has been Set!');
         alarmTime = {   
                         hourInput : hourInput.value, 
                         minuteInput : minuteInput.value, 
@@ -285,6 +293,33 @@ function addAlarmList(alarmTime) {
 }
 
 
+// stop alarm button
+
+const stopAlarm = document.getElementsByTagName('text')[0];
+
+stopAlarm.addEventListener('click', function () {
+    console.log('stop alarm button clicked');
+    alarmRingtone.pause();
+    showNotification("Sucessfull: Alarm has been Stopped!");
+    alarmRingningDiv.style.display = "none";
+});
+
+
+// snzooe alarm list
+
+const snooze = document.getElementById('snooze');
+snooze.addEventListener('click', function () {
+    console.log('snooze button clicked');
+    alarmRingtone.pause();
+    alarmRingningDiv.style.display = "none";
+    showNotification("Sucessfull: Alarm has been Snoozed!");
+    setTimeout(() => {
+        alarmRingtone.play();
+        alarmRingningDiv.style.display = "block";
+    }, 50000);
+});
+
+
 
 document.addEventListener('click', function (e) {
     // console.log(e.target);
@@ -307,7 +342,7 @@ function deletebutton(dataid) {
     });
     alarmListArr = newAlarmList;
     renderList();
-    alarmDeletedWarning();
+    showNotification("Sucessfull: Alarm has been Deleted!");
 }
 
 
@@ -323,50 +358,40 @@ function renderList() {
 }
 
 
+// popup notification section
 
-// warning alaert
-function alarmSetWarning() {
-    setAlarmWarning = document.querySelector('.alarm-set-alert');
-    setAlarmWarning.classList.toggle('active');
+// notification
 
-    closeSetAlarmWarning = document.querySelector('.close-set-alarm-button')
-    closeSetAlarmWarning.onclick = function() {
-        setAlarmWarning.classList.add('remove');
-    }
+const notification = document.querySelector('.show-notification');
+const notificationMsg = document.getElementById('notification-msg');
+
+function showNotification(msg) {
+    notification.classList.remove('remove');
+    notification.classList.add('active');
+    notificationMsg.textContent = msg;
+    setTimeout(() => {
+        removeNotification();
+    }, 2500);
 }
 
-
-
-function alarmDeletedWarning() {
-    stopAlarmWarning = document.querySelector('.alarm-stop-alert');
-    stopAlarmWarning.classList.toggle('active');
-
-    closeStopAlarmWarning = document.querySelector('.close-stop-alarm-button')
-    closeStopAlarmWarning.onclick = function() {
-        stopAlarmWarning.classList.add('remove');
-    }
+function removeNotification() {
+    notification.classList.add('remove');
 }
 
+// warning
 
+const warning = document.querySelector('.show-warning');
+const warningMsg = document.getElementById('warning-msg');
 
-function inputWarning() {
-    inputAlarmWarning = document.querySelector('.alarm-input-alert');
-    inputAlarmWarning.classList.toggle('active');
-
-    closeInputAlarmWarning = document.querySelector('.close-input-alarm-button')
-    closeInputAlarmWarning.onclick = function() {
-        inputAlarmWarning.classList.toggle('active');
-        inputAlarmWarning.style.tansition = "all 0.3s ease-in-out"
-    }
+function showWarning(msg) {
+    warning.classList.remove('remove');
+    warning.classList.add('active');    
+    warningMsg.textContent = msg;
+    setTimeout(() => {
+        removeWarning();
+    }, 2500);
 }
 
-function invalidInputWarning() {
-    inputAlarmWarning = document.querySelector('.alarm-invalid-input-alert');
-    inputAlarmWarning.classList.toggle('active');
-
-    closeInputAlarmWarning = document.querySelector('.close-invalid-input-alarm-button')
-    closeInputAlarmWarning.onclick = function() {
-        inputAlarmWarning.classList.toggle('active');
-        inputAlarmWarning.style.tansition = "all 0.3s ease-in-out"
-    }
+function removeWarning() {
+    warning.classList.add('remove');
 }
