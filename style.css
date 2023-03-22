@@ -15,13 +15,14 @@ body {
     color: white;
     transition: all 0.5s ease-in-out;
     overflow-x: hidden;
-    background-image: url(./images/milad-fakurian-u8Jn2rzYIps-unsplash.jpg);
+    background-image: url(./images/Desktop\ Pc\ Dark.jpg);
     background-size: cover;
+    background-repeat: no-repeat;
     overflow: hidden;
 }
 
 body.active {
-    background-image: url(./images/milad-fakurian-7wUorDiCMSU-unsplash.jpg);
+    background-image: url(./images/Desktop\ Pc\ Light.jpg);
     background-color: rgb(231, 230, 230);
     color: rgb(29, 29, 29);
 }
@@ -426,7 +427,7 @@ ul {
 }
 
 .alarm-list-section {
-    height: 32vh;
+    height: 34.5vh;
     padding: 20px;
     overflow-y: scroll;
 }
@@ -437,8 +438,8 @@ ul {
 
 .alarm-list-container {
     width: 17vw;
-    padding: 15px 40px;
-    border-radius: 10px;
+    padding: 10px 40px;
+    border-radius: 15px;
     display:  flex;
     justify-content: center;
     align-items: center;
@@ -932,7 +933,7 @@ text {
 }
 
 footer {
-    width: 100%;
+    width: 100vw;
     background-color: #121314;
     color: white;
     height: 2vh;
@@ -950,8 +951,138 @@ footer {
 /* laptop*/
 
 @media screen and (max-width: 1420px) {
+    
+    span {
+        font-size: 4rem;
+    }
+
+    .side {
+        margin-top: 28px;
+        margin-left: 0px;
+    }
+
+    .side span {
+        font-size: 1.1rem;
+    }
+
+    .side .second {
+        margin: 0;
+    }
+
     .set-alarm-button {
         width: 10vw;
+    }
+
+    .month {
+        font-size: 1rem;
+    }
+
+    .day {
+        font-size: 2rem;
+    }
+
+    .date {
+        font-size: 1.7rem;
+    }
+
+    .add-alarm img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .set-hour {
+        width: 4vw;
+        height: 1.5vh;
+        font-size: 1rem;
+    }
+
+    .set-minute {
+        width: 4vw;
+        height: 1.5vh;
+        font-size: 1rem;
+    }
+
+    .set-sec {
+        width: 4vw;
+        height: 1.5vh;
+        font-size: 1rem;
+    }
+
+    .set-alarm {
+        padding: 15px 25px;
+    }
+
+    .local-time-toggle-button {
+        padding: 2px 15px;
+    }
+
+    .alarm-list-section {
+        height: 22vh;
+    }
+
+    .alarm-list-container {
+        padding: 10px 40px;
+        margin-bottom: 15px;
+    }
+
+    .alarm-info span {
+        font-size: 0.9rem;
+    }
+
+    .list-am-pm-info {
+        font-size: 0.6rem !important;
+    }
+
+    .delete {
+        width: 25px;
+        height: 22px;
+    }
+    
+    .theme-toggle {
+        top: 0.5%;
+    }
+
+    .theme-image {
+        width: 30px;
+        height: 30px;
+    }
+
+    #snooze {
+        bottom: 17%;
+    }
+
+    .snooze-text {
+        font-size: 0.8rem;
+        left: 47.7%;
+        bottom: 6%;
+    }
+
+    .show-notification {
+        width: 27vw;
+        height: 8vh;
+    }
+
+    .show-notification-msg {
+        font-size: 0.8rem;
+    }
+
+    .close-notification {
+        height: 8vh;
+        margin-top: 53px;
+    }
+
+    .show-warning {
+        width: 27vw;
+        height: 8vh;
+    }
+
+    .show-warning-msg {
+        font-size: 0.8rem;
+    }
+
+    .close-warning {
+        height: 8vh;
+        margin-top: 53px;
     }
 }
 
@@ -965,176 +1096,113 @@ footer {
     }
 
     .set-hour {
-        width: 10vw;
+        width: 6vw;
     }
 
     .set-minute {
-        width: 10vw;
+        width: 6vw;
     }
 
-    .set-alarm-button {
-        width: 15vw;
+    .set-sec {
+        width: 6vw;
     }
-}
-
-.alarm-stop-alert {
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    justify-content: space-between;
-    background: #ffdb9b;
-    width: 25vw;
-    height: 6vh;
-    position: absolute;
-    right: 0;
-    top: 2%;
-    border-radius: 4px;
-    border-left: 8px solid #ffa502;
-    opacity: 0;
-    pointer-events: none;
-}
-
-.alarm-stop-alert.active {
-    opacity: 1;
-    pointer-events: auto;
-    animation: show_alarm_stop_slide 1s ease forwards;
-}
-
-.warning {
-    display: flex;
-    align-items: center;
-}
-
-
-.warning-img {
-    width: 35px;
-    height: 35px;
-    background-color: #ce8500;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 0px 10px;
-}
-
-.fa-exclamation {
-    transform: translateY(-50%);
-    color: #ffd080;
-    font-size: 1.5rem;
-    margin-top: 27px;
-    margin-left: 2px;
-}
-
-.close-stop-alarm-button{
-    margin-top: 65px;
-    width: 60px;
-    height: 6vh;
-    transform: translateY(-50%);
-    background: #ffd080;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    border-radius: 0px 4px 4px 0px;
-}
-
-.fa-xmark {
-    font-size: 2rem;
-    color: #ce8500;
-}
-
-.close-stop-alarm-button:hover {
-    background: #ffc766;
-}
-
-.msg {
-    font-size: 1rem;
-    color: #ce8500;
-    margin: 0px 10px;
-}
-
-@keyframes show_alarm_stop_slide {
-    0% {
-        transform: translateX(100%);
-    }
-
-    40% {
-        transform: translateX(-10%);
-    }
-
-    80% {
-        transform: translateX(0%);
-    }
-
-    100% {
-        transform: translateX(-10px);
-    }
-}
-
-.alarm-stop-alert.remove {
-    animation: hide_alarm_stop_slide 1s ease forwards;
-}
-
-@keyframes hide_alarm_stop_slide {
-    0% {
-        transform: translateX(-10px);
-    }
-
-    40% {
-        transform: translateX(0%);
-    }
-
-    80% {
-        transform: translateX(-10%);
-    }
-
-    100% {
-        transform: translateX(100%);
-    }
-}
-
-/* responsive */
-
-/* laptop*/
-
-@media screen and (max-width: 1420px) {
-    .set-alarm-button {
-        width: 10vw;
-    }
-}
-
-
-/* tab */
-
-@media screen and (max-width: 920px) {
 
     .set-alarm {
-        width: 50vw;
-    }
-
-    .set-hour {
-        width: 10vw;
-    }
-
-    .set-minute {
-        width: 10vw;
+        width: 35vw;
     }
 
     .set-alarm-button {
         width: 15vw;
+    }
+
+    .alarm-list-section {
+        height: 22vh;
+    }
+
+    .alarm-list-container {
+        width: 25vw;
+        padding: 10px 40px;
+        margin-bottom: 20px;
+    }
+    
+    svg {
+        position: absolute;
+        top: 0;
+    }
+
+    circle:nth-child(1) {
+        r: 130;
+    }
+
+    circle:nth-child(2) {
+        r: 100;
+    }
+
+    circle:nth-child(3) {
+        r: 70;
+    }
+
+    circle:nth-child(4) {
+        r: 50;
+    }
+
+    circle:nth-child(5) {
+        r: 25;
+    }
+    
+    #snooze {
+        bottom: 20%;
+    }
+
+    .snooze-text {
+        bottom: 14%;
+        left: 46.7%;
+    }
+
+    .show-notification {
+        width: 45vw;
+        height: 5vh;
+    }
+
+    .show-notification-msg {
+        font-size: 1rem;
+    }
+
+    .close-notification {
+        height: 5vh;
+        margin-top: 69px;
+    }
+
+    .show-warning {
+        width: 45vw;
+        height: 5vh;
+    }
+
+    .show-warning-msg {
+        font-size: 1rem;
+    }
+
+    .close-warning {
+        height: 5vh;
+        margin-top: 69px;
+    }
+    
+    footer {
+        position: absolute;
+        bottom: 0;
     }
 }
 
 /* mobile */
 
-@media screen and (max-width: 500px) {
+@media screen and (max-width: 550px) {
+
     span {
-        font-size: 4rem;
+        font-size: 2.5rem;
     }
 
     .colon {
-        font-size: 2.5rem;
+        font-size: 2rem;
     }
 
     .side {
@@ -1143,12 +1211,102 @@ footer {
 
     .second {
         font-size: 1rem;
-        padding: 0px;
     }
 
     .am-pm {
         font-size: 1rem;
-        padding: 0px;
+    }
+
+    .set-alarm {
+        width: 45vw;
+    }
+
+    .set-alarm-heading {
+        font-size: 0.7rem;
+    }
+
+    .set-am {
+        font-size: 0.6rem;
+    }
+
+    .set-pm {
+        font-size: 0.6rem;
+    }
+
+    .set-hour {
+        width: 6vw;
+        height: 1vh;
+        font-size: 0.8rem;
+    }
+
+    .set-minute {
+        width: 6vw;
+        height: 1vh;
+        font-size: 0.8rem;
+    }
+
+    .set-sec {
+        width: 6vw;
+        height: 1vh;
+        font-size: 0.8rem;
+    }
+
+    .set-alarm-button {
+        width: 20vw;
+        font-size: 0.8rem;
+    }
+
+    .alarm-list-section {
+        height: 24vh;
+    }
+
+    .alarm-list-container {
+        width: 30vw;
+        padding: 10px 40px;
+        margin-bottom: 20px;
+    }
+
+    .snooze-text {
+        left: 45%;
+        bottom: 10%;
+    }
+
+    .show-notification {
+        width: 55vw;
+        height: 6vh;
+    }
+
+    .show-notification-msg {
+        font-size: 0.6rem;
+    }
+
+    .close-notification {
+        height: 6vh;
+        margin-top: 43px;
+    }
+
+    .show-warning {
+        width: 55vw;
+        height: 6vh;
+    }
+
+    .show-warning-msg {
+        font-size: 0.6rem;
+    }
+
+    .close-warning {
+        height: 6vh;
+        margin-top: 43px;
+    }
+
+}
+
+/* for smaller mobile */
+
+@media screen and (max-width: 420px) {
+
+    body {
+        overflow: hidden;
     }
 
     .set-alarm {
@@ -1156,16 +1314,58 @@ footer {
     }
 
     .set-hour {
-        width: 23vw;
-        height: 3vh;
+        width: 8vw;
     }
 
     .set-minute {
-        width: 23vw;
-        height: 3vh;
+        width: 8vw;
+    }
+
+    .set-sec {
+        width: 8vw;
     }
 
     .set-alarm-button {
         width: 30vw;
+    }
+
+    .alarm-list-section {
+        height: 26vh;
+    }
+
+    .alarm-list-container {
+        width: 40vw;
+    }
+
+    .show-notification {
+        width: 65vw;
+        height: 5vh;
+    }
+
+    .show-notification-msg {
+        font-size: 0.6rem;
+    }
+
+    .close-notification {
+        height: 5vh;
+        margin-top: 45px;
+    }
+
+    .show-warning {
+        width: 65vw;
+        height: 5vh;
+    }
+
+    .show-warning-msg {
+        font-size: 0.6rem;
+    }
+
+    .close-warning {
+        height: 5vh;
+        margin-top: 45px;
+    }
+
+    .snooze-text {
+        left: 44%;
     }
 }
