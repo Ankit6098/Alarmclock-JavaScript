@@ -323,7 +323,7 @@ snooze.addEventListener('click', function () {
     setTimeout(() => {
         alarmRingtone.play();
         alarmRingningDiv.style.display = "block";
-    }, 50000);
+    }, 300000);
 });
 
 

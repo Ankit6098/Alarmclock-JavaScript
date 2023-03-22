@@ -105,7 +105,8 @@ i {
 .local-time-toggle {
     display: flex;
     justify-content: flex-end;
-    margin: 30px 10px;
+    margin: 20px 10px;
+    margin-bottom: 10px;
 }
 
 .local-time-toggle-button {
@@ -198,14 +199,14 @@ i {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin: 10px;
+    margin-top: 10px;
 }
 
 .add-img {
     width: 30px;
     height: 30px;
     filter: brightness(0) invert(1);
-    transition: all 0.3s ease-in-out;
+    transition: all 0.5s ease-in-out;
     cursor: pointer;
     margin: 10px;
 }
@@ -425,7 +426,7 @@ ul {
 }
 
 .alarm-list-section {
-    height: 36vh;
+    height: 32vh;
     padding: 20px;
     overflow-y: scroll;
 }
@@ -919,7 +920,7 @@ text {
 .snooze-text {
     position: absolute;
     bottom: 6%;
-    left: 47.9%;
+    left: 47.8%;
     translate: translateX(-50%);
     font-family: poppins;
     font-weight: 600;
@@ -930,6 +931,18 @@ text {
     color: rgb(221, 218, 218);
 }
 
+footer {
+    width: 100%;
+    background-color: #121314;
+    color: white;
+    height: 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6rem;
+    position: fixed;
+    bottom: 0;
+}
   
 
 /* responsive */
