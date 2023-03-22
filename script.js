@@ -372,11 +372,13 @@ const notification = document.querySelector('.show-notification');
 const notificationMsg = document.getElementById('notification-msg');
 
 function showNotification(msg) {
+    notification.style.display = "block";
     notification.classList.remove('remove');
     notification.classList.add('active');
     notificationMsg.textContent = msg;
     setTimeout(() => {
         removeNotification();
+        notification.style.display = "none";
     }, 2500);
 }
 
@@ -390,11 +392,13 @@ const warning = document.querySelector('.show-warning');
 const warningMsg = document.getElementById('warning-msg');
 
 function showWarning(msg) {
+    warning.style.display = "block";
     warning.classList.remove('remove');
     warning.classList.add('active');    
     warningMsg.textContent = msg;
     setTimeout(() => {
         removeWarning();
+        warning.style.display = "none";
     }, 2500);
 }
 

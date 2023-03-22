@@ -439,7 +439,7 @@ ul {
 .alarm-list-container {
     width: 17vw;
     padding: 10px 40px;
-    border-radius: 15px;
+    border-radius: 12px;
     display:  flex;
     justify-content: center;
     align-items: center;
@@ -509,7 +509,7 @@ list {
     justify-content: flex-end;
     justify-content: space-between;
     background: #c0f4d2;
-    width: 25vw;
+    width: 20vw;
     height: 6vh;
     position: absolute;
     right: 0;
@@ -527,6 +527,8 @@ list {
 }
 
 .warning {
+    width: inherit;
+    height: inherit;
     display: flex;
     align-items: center;
 }
@@ -621,7 +623,7 @@ list {
     justify-content: flex-end;
     justify-content: space-between;
     background: #ffe1e2;
-    width: 25vw;
+    width: 20vw;
     height: 6vh;
     position: absolute;
     right: 0;
@@ -639,6 +641,8 @@ list {
 }
 
 .warning {
+    width: inherit;
+    height: inherit;
     display: flex;
     align-items: center;
 }
@@ -1058,8 +1062,8 @@ footer {
     }
 
     .show-notification {
-        width: 27vw;
-        height: 8vh;
+        width: 25vw;
+        height: 7vh;
     }
 
     .show-notification-msg {
@@ -1072,8 +1076,8 @@ footer {
     }
 
     .show-warning {
-        width: 27vw;
-        height: 8vh;
+        width: 25vw;
+        height: 7vh;
     }
 
     .show-warning-msg {
@@ -1160,7 +1164,7 @@ footer {
     }
 
     .show-notification {
-        width: 45vw;
+        width: 40vw;
         height: 5vh;
     }
 
@@ -1174,7 +1178,7 @@ footer {
     }
 
     .show-warning {
-        width: 45vw;
+        width: 40vw;
         height: 5vh;
     }
 
@@ -1304,10 +1308,6 @@ footer {
 /* for smaller mobile */
 
 @media screen and (max-width: 420px) {
-
-    body {
-        overflow: hidden;
-    }
 
     .set-alarm {
         width: 70vw;
