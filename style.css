@@ -1194,7 +1194,7 @@ footer {
 
 /* mobile */
 
-@media screen and (max-width: 560px) {
+@media screen and (max-width: 600px) {
 
     body {
         background-image: url(./images/Mobile\ Dark.jpg);
