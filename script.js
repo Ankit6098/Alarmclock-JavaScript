@@ -14,22 +14,17 @@ const addAlarm = document.querySelector('.add-img');
 const addAlarmDisplay = document.querySelector('.display-add-alarm');
 const setAlarm = document.querySelector('.set-alarm');
 const setAmPm = document.getElementById('set-am-pm')
-
-
 const setAlarmButton = document.querySelector('.set-alarm-button');
 const cancelAlarmbutton = document.querySelector('.cancel-alarm-button')
-
 const alarmList = document.getElementById('alarm-list');
 const deleteButton = document.getElementById('delete');
-
-// alarm ringing
-const alarmRingningDiv = document.getElementById('alarm-ringing');
+const alarmRingning = document.getElementById('alarm-ringing');
 const circle = document.getElementsByTagName('circle');
 const snoozeWave = document.querySelector('.wave');
 const snoozeText = document.querySelector('.snooze-text');
 
-alarmRingtone = new Audio("./ringtones/alexa ringtone.mp3");
 
+alarmRingtone = new Audio("./ringtones/alexa ringtone.mp3");
 let alarmListArr = [];
 
 
@@ -38,7 +33,9 @@ function updateTime() {
     const date = new Date();
     const hour = formatTime(date.getHours());
     const minute = formatTime(date.getMinutes());
+    const min = date.getMinutes();
     const second = formatTime(date.getSeconds());
+    const sec = date.getSeconds();
     const month = getMonth(date.getMonth());
     const day = getDay(date.getDay());
     const currentDate = formatTime(date.getDate());
@@ -48,12 +45,12 @@ function updateTime() {
     if (localTime) {
         displayHour.innerHTML = hour;
         displayhr.innerHTML = '24hr';
-        for(let i = 0; i < alarmListArr.length; i++) {
-            if(alarmListArr[i].hourInput == hour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
-                console.log('alarm1');
-                alarmRingtone.play();
-                alarmRingtone.loop = true;
-                alarmRingningDiv.style.display = 'block';
+        for (let i = 0; i < alarmListArr.length; i++) {
+            if ((alarmListArr[i].hourInput == calculatedHour || alarmListArr[i].hourInput == hour) && 
+            (alarmListArr[i].minuteInput == minute || alarmListArr[i].minuteInput == min) && 
+            (alarmListArr[i].secInput == second || alarmListArr[i].secInput == sec) && 
+            alarmListArr[i].ampmInput == ampm) {
+                playAlarm();
             }
         }
     } else {
@@ -62,39 +59,41 @@ function updateTime() {
             if (calculatedHour < 10) {
                 displayHour.innerHTML = '0' + calculatedHour;
                 displayhr.innerHTML = '12hr';
-                for(let i = 0; i < alarmListArr.length; i++) {
-                    if(alarmListArr[i].hourInput == calculatedHour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
-                        console.log('alarm1');
-                        alarmRingtone.play();
-                        alarmRingtone.loop = true;
-                        alarmRingningDiv.style.display = 'block';
+                for (let i = 0; i < alarmListArr.length; i++) {
+                    if ((alarmListArr[i].hourInput == calculatedHour || alarmListArr[i].hourInput == hour) && 
+            (alarmListArr[i].minuteInput == minute || alarmListArr[i].minuteInput == min) && 
+            (alarmListArr[i].secInput == second || alarmListArr[i].secInput == sec) && 
+            alarmListArr[i].ampmInput == ampm) {
+                        playAlarm();
                     }
                 }
             } else {
                 displayHour.innerHTML = calculatedHour;
                 displayhr.innerHTML = '12hr';
-                for(let i = 0; i < alarmListArr.length; i++) {
-                    if(alarmListArr[i].hourInput == calculatedHour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
-                        console.log('alarm1');
-                        alarmRingtone.play();
-                        alarmRingtone.loop = true;
-                        alarmRingningDiv.style.display = 'block';
+                for (let i = 0; i < alarmListArr.length; i++) {
+                    if ((alarmListArr[i].hourInput == calculatedHour || alarmListArr[i].hourInput == hour) && 
+            (alarmListArr[i].minuteInput == minute || alarmListArr[i].minuteInput == min) && 
+            (alarmListArr[i].secInput == second || alarmListArr[i].secInput == sec) && 
+            alarmListArr[i].ampmInput == ampm) {
+                        playAlarm();
                     }
                 }
             }
         } else {
             displayHour.innerHTML = hour;
             displayhr.innerHTML = '12hr';
-            for(let i = 0; i < alarmListArr.length; i++) {
-                if(alarmListArr[i].hourInput == hour && alarmListArr[i].minuteInput == minute && alarmListArr[i].secInput == second && alarmListArr[i].ampmInput == ampm) {
-                    console.log('alarm1');
-                    alarmRingtone.play();
-                    alarmRingtone.loop = true;
-                    alarmRingningDiv.style.display = 'block';
+            for (let i = 0; i < alarmListArr.length; i++) {
+                if ((alarmListArr[i].hourInput == calculatedHour || alarmListArr[i].hourInput == hour) && 
+            (alarmListArr[i].minuteInput == minute || alarmListArr[i].minuteInput == min) && 
+            (alarmListArr[i].secInput == second || alarmListArr[i].secInput == sec) && 
+            alarmListArr[i].ampmInput == ampm) {
+                    playAlarm();
                 }
             }
         }
     }
+
+    console.log(calculatedHour, minute, second, ampm);
 
     // display clock
     displayMinute.innerHTML = minute;
@@ -107,8 +106,21 @@ function updateTime() {
 setInterval(updateTime, 1000);
 
 
+// play alarm
+
+function playAlarm() {
+    setTimeout(() => {
+        alarmRingtone.pause();
+        alarmRingning.style.display = 'none';
+    }, 300000);
+    alarmRingtone.play();
+    alarmRingtone.loop = true;
+    alarmRingning.style.display = 'block';
+}
+
 
 // timeformate
+
 function formatTime(time) {
     if (time < 10) {
         return '0' + time;
@@ -117,8 +129,8 @@ function formatTime(time) {
 }
 
 
-
 // fetch the month
+
 function getMonth(monthNumber) {
     const monthsArr = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
     return monthsArr[monthNumber];
@@ -126,16 +138,16 @@ function getMonth(monthNumber) {
 }
 
 
-
 // fetch the day
+
 function getDay(dayNumber) {
     const daysArr = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday",];
     return daysArr[dayNumber];
 }
 
 
-
 // 24hr / 12hr toggle
+
 let localTime = false;
 localTimeToggle.onclick = function () {
     localTimeToggle.classList.toggle('active');
@@ -145,6 +157,7 @@ localTimeToggle.onclick = function () {
 
 
 // dark / light theme toggle
+
 themeToggle.onclick = function () {
     themeToggle.classList.toggle('active');
     body.classList.toggle('active');
@@ -168,8 +181,8 @@ themeToggle.onclick = function () {
 }
 
 
-
 // add alarm button section
+
 addAlarm.onclick = function () {
     addAlarm.classList.toggle('active');
     setAlarm.classList.toggle('active');
@@ -182,8 +195,8 @@ addAlarm.onclick = function () {
 }
 
 
-
 // am-pm section
+
 setAmPm.onclick = function () {
     const setAm = document.getElementById('set-am');
     const setPm = document.getElementById('set-pm');
@@ -216,8 +229,8 @@ setAmPm.onclick = function () {
 }
 
 
+// getting data for alarm
 
-// getting data to set alarm
 var hourInput = document.getElementById('set-hour');
 var minuteInput = document.getElementById('set-minute');
 var secInput = document.getElementById('set-sec');
@@ -226,7 +239,7 @@ var secInput = document.getElementById('set-sec');
 var ampmInput = 'AM';
 setAlarmButton.onclick = function () {
     console.log('set alarm button click');
-    
+
     if (setAmPm.classList.contains('unactive')) {
         ampmInput = 'PM';
     } else {
@@ -238,23 +251,14 @@ setAlarmButton.onclick = function () {
     } else if (hourInput.value > 23 || minuteInput.value > 60 || secInput.value > 60 || hourInput.value < 0 || minuteInput.value < 0 || secInput.value < 0) {
         showWarning("Warning: Please Enter Valid Time!")
     } else {
-        if (hourInput.value > 12) {
-            hourInput.value = hourInput.value - 12;  
-        }
-        if (hourInput.value < 10) {
-            hourInput.value = '0' + hourInput.value;
-        }
-        if (minuteInput.value < 10) {
-            minuteInput.value = '0' + minuteInput.value;
-        }
         showNotification('Sucessfull: Alarm has been Set!');
-        alarmTime = {   
-                        hourInput : hourInput.value, 
-                        minuteInput : minuteInput.value, 
-                        secInput : secInput.value, 
-                        ampmInput : ampmInput,
-                        id : Date.now()
-                    };
+        alarmTime = {
+            hourInput: hourInput.value,
+            minuteInput: minuteInput.value,
+            secInput: secInput.value,
+            ampmInput: ampmInput,
+            id: Date.now()
+        };
 
         alarmListArr.push(alarmTime);
         console.log(alarmTime);
@@ -269,6 +273,7 @@ setAlarmButton.onclick = function () {
 
 
 // alarm list section
+
 function addAlarmList(alarmTime) {
     const li = document.createElement("list");
     li.innerHTML = `
@@ -308,7 +313,7 @@ stopAlarm.addEventListener('click', function () {
     console.log('stop alarm button clicked');
     alarmRingtone.pause();
     showNotification("Sucessfull: Alarm has been Stopped!");
-    alarmRingningDiv.style.display = "none";
+    alarmRingning.style.display = "none";
 });
 
 
@@ -318,24 +323,13 @@ const snooze = document.getElementById('snooze');
 snooze.addEventListener('click', function () {
     console.log('snooze button clicked');
     alarmRingtone.pause();
-    alarmRingningDiv.style.display = "none";
+    alarmRingning.style.display = "none";
     showNotification("Sucessfull: Alarm has been Snoozed!");
     setTimeout(() => {
         alarmRingtone.play();
-        alarmRingningDiv.style.display = "block";
+        alarmRingning.style.display = "block";
     }, 300000);
 });
-
-
-document.addEventListener('click', function (e) {
-    // console.log(e.target);
-    if (e.target.id == 'delete') {
-        let dataid = e.target.dataset.id;
-        console.log(dataid);
-        deletebutton(dataid);
-    }
-});
-
 
 
 // delete alarm button
@@ -351,6 +345,14 @@ function deletebutton(dataid) {
     showNotification("Sucessfull: Alarm has been Deleted!");
 }
 
+document.addEventListener('click', function (e) {
+    // console.log(e.target);
+    if (e.target.id == 'delete') {
+        let dataid = e.target.dataset.id;
+        console.log(dataid);
+        deletebutton(dataid);
+    }
+});
 
 
 // render alarm list
@@ -386,6 +388,7 @@ function removeNotification() {
     notification.classList.add('remove');
 }
 
+
 // warning
 
 const warning = document.querySelector('.show-warning');
@@ -394,7 +397,7 @@ const warningMsg = document.getElementById('warning-msg');
 function showWarning(msg) {
     warning.style.display = "block";
     warning.classList.remove('remove');
-    warning.classList.add('active');    
+    warning.classList.add('active');
     warningMsg.textContent = msg;
     setTimeout(() => {
         removeWarning();

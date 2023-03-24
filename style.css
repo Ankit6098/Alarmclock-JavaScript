@@ -440,7 +440,7 @@ ul {
     width: 17vw;
     padding: 10px 40px;
     border-radius: 12px;
-    display:  flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     justify-content: space-between;
@@ -549,7 +549,7 @@ list {
     color: white;
 }
 
-.close-notification{
+.close-notification {
     margin-top: 65px;
     width: 60px;
     height: 6vh;
@@ -742,7 +742,7 @@ list {
     display: flex;
     justify-content: center;
     align-items: center;
-    display: none;    
+    display: none;
 }
 
 svg {
@@ -758,10 +758,10 @@ svg {
 
 circle {
     -webkit-transform-origin: center;
-            transform-origin: center;
+    transform-origin: center;
     transform-box: fill-box;
     -webkit-animation: pulse 2.5s ease-in-out infinite;
-            animation: pulse 2.5s ease-in-out infinite;
+    animation: pulse 2.5s ease-in-out infinite;
 }
 
 /* dark mode */
@@ -769,31 +769,31 @@ circle {
 circle:nth-child(1) {
     fill: #662794;
     -webkit-animation-delay: 0.4s;
-            animation-delay: 0.4s;
+    animation-delay: 0.4s;
 }
 
 circle:nth-child(2) {
     fill: #7841a1;
     -webkit-animation-delay: 0.3s;
-            animation-delay: 0.3s;
+    animation-delay: 0.3s;
 }
 
 circle:nth-child(3) {
     fill: #9366b3;
     -webkit-animation-delay: 0.2s;
-            animation-delay: 0.2s;
+    animation-delay: 0.2s;
 }
 
 circle:nth-child(4) {
     fill: #b392c9;
     -webkit-animation-delay: 0.1s;
-            animation-delay: 0.1s;
+    animation-delay: 0.1s;
 }
 
 circle:nth-child(5) {
     fill: #f6dafc;
     -webkit-animation: none;
-            animation: none;
+    animation: none;
 }
 
 /* light mode */
@@ -820,45 +820,49 @@ circle.active:nth-child(5) {
 
 @-webkit-keyframes pulse {
     0% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
     }
+
     50% {
-      -webkit-transform: scale(1.1);
-              transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
     }
 }
 
 @keyframes pulse {
     0% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
     }
+
     50% {
-      -webkit-transform: scale(1.1);
-              transform: scale(1.1);
+        -webkit-transform: scale(1.1);
+        transform: scale(1.1);
     }
 }
 
 @-webkit-keyframes shine {
     0% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
     }
+
     50% {
-      -webkit-transform: scale(2);
-              transform: scale(2);
+        -webkit-transform: scale(2);
+        transform: scale(2);
     }
 }
 
 @keyframes shine {
     0% {
-      -webkit-transform: scale(1);
-              transform: scale(1);
+        -webkit-transform: scale(1);
+        transform: scale(1);
     }
+
     50% {
-      -webkit-transform: scale(2);
-              transform: scale(2);
+        -webkit-transform: scale(2);
+        transform: scale(2);
     }
 }
 
@@ -877,49 +881,88 @@ text {
     bottom: 13%;
     left: 49.2%;
     translate: translateX(-50%);
+    cursor: pointer;
 }
 
-.wave{
-  width:10px;
-  height:10px;
-  top:50%;
-  left:50%;
-  background-color:violet;
-  border-radius:50%;
-  position:absolute; 
-  -webkit-animation:example 1.5s linear infinite;   
-  animation:example 1.5s linear infinite;  
+.wave {
+    width: 10px;
+    height: 10px;
+    top: 50%;
+    left: 50%;
+    background-color: violet;
+    border-radius: 50%;
+    position: absolute;
+    -webkit-animation: example 1.5s linear infinite;
+    animation: example 1.5s linear infinite;
 }
 
 .wave.active {
-    background-color:white;
+    background-color: white;
 }
 
-.delay1{
-    -webkit-animation-delay:.3s;
-    animation-delay:.3s;  
+.delay1 {
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
 }
 
-.delay2{
-    -webkit-animation-delay:.6s;
-    animation-delay:.6s;  
+.delay2 {
+    -webkit-animation-delay: .6s;
+    animation-delay: .6s;
 }
 
-@-webkit-keyframes example{
-  0%{transform:scale(1,1);opacity:1;}
-  25%{transform:scale(2,2);opacity:0.75;}
-  50%{transform:scale(4,4);opacity:0.5;}
-  75%{transform:scale(6,6);opacity:0.25}
-  100%{transform:scale(8,8);opacity:0} 
+@-webkit-keyframes example {
+    0% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    25% {
+        transform: scale(2, 2);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: scale(4, 4);
+        opacity: 0.5;
+    }
+
+    75% {
+        transform: scale(6, 6);
+        opacity: 0.25
+    }
+
+    100% {
+        transform: scale(8, 8);
+        opacity: 0
+    }
 }
 
 
-@keyframes example{
-  0%{transform:scale(1,1);opacity:1;}
-  25%{transform:scale(2,2);opacity:0.75;}
-  50%{transform:scale(4,4);opacity:0.5;}
-  75%{transform:scale(6,6);opacity:0.25}
-  100%{transform:scale(8,8);opacity:0} 
+@keyframes example {
+    0% {
+        transform: scale(1, 1);
+        opacity: 1;
+    }
+
+    25% {
+        transform: scale(2, 2);
+        opacity: 0.75;
+    }
+
+    50% {
+        transform: scale(4, 4);
+        opacity: 0.5;
+    }
+
+    75% {
+        transform: scale(6, 6);
+        opacity: 0.25
+    }
+
+    100% {
+        transform: scale(8, 8);
+        opacity: 0
+    }
 }
 
 .snooze-text {
@@ -948,14 +991,14 @@ footer {
     position: fixed;
     bottom: 0;
 }
-  
+
 
 /* responsive */
 
 /* laptop*/
 
 @media screen and (max-width: 1420px) {
-    
+
     span {
         font-size: 4rem;
     }
@@ -1041,7 +1084,7 @@ footer {
         width: 25px;
         height: 22px;
     }
-    
+
     .theme-toggle {
         top: 0.5%;
     }
@@ -1128,7 +1171,7 @@ footer {
         padding: 10px 40px;
         margin-bottom: 20px;
     }
-    
+
     svg {
         position: absolute;
         top: 0;
@@ -1153,7 +1196,7 @@ footer {
     circle:nth-child(5) {
         r: 25;
     }
-    
+
     #snooze {
         bottom: 20%;
     }
