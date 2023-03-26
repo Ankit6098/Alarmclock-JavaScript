@@ -26,6 +26,14 @@ const snoozeText = document.querySelector('.snooze-text');
 alarmRingtone = new Audio("./ringtones/alexa ringtone.mp3");
 let alarmListArr = [];
 
+let retrieveAlarm = JSON.parse(localStorage.getItem('local'));
+
+if (retrieveAlarm !== null) {
+    alarmListArr = [...retrieveAlarm];
+    renderList();
+}
+
+
 // time update
 function updateTime() {
     const date = new Date();
@@ -63,7 +71,7 @@ function updateTime() {
         }
     }
 
-    console.log(calculatedHour, minute, second, ampm);
+    // console.log(calculatedHour, minute, second, ampm);
 
     // display clock
     displayMinute.innerHTML = minute;
@@ -88,7 +96,11 @@ function playAlarm(calculatedHour, hour, minute, min, second, sec, ampm) {
                 alarmRingtone.pause();
                 alarmRingning.style.display = 'none';
             }, 300000);
-            alarmRingtone.play();
+            alarmRingtone.play()
+            .catch((error)=> {
+                console.log("Brwoser doesn't play audio without user interaction after page load");
+                showWarning("Warning: User interaction is required!");
+            });
             alarmRingtone.loop = true;
             alarmRingning.style.display = 'block';
             snooze.style.display = 'block';
@@ -241,7 +253,8 @@ setAlarmButton.onclick = function () {
 
         alarmListArr.push(alarmTime);
         console.log(alarmTime);
-        addAlarmList(alarmTime);
+        // addAlarmList(alarmTime);
+        renderList();
 
         hourInput.value = "";
         minuteInput.value = "";
@@ -271,7 +284,7 @@ function addAlarmList(alarmTime) {
                     ${alarmTime.secInput}
                 </span>
                 <span class = list-am-pm-info>
-                    ${ampmInput}
+                    ${alarmTime.ampmInput}
                 </span>
                 </div>
             </div>
@@ -350,6 +363,7 @@ document.addEventListener('click', function (e) {
 
 function renderList() {
     console.log('Item Rendered!');
+    localStorage.setItem('local', JSON.stringify(alarmListArr));
     alarmList.innerHTML = '';
     for (let element of alarmListArr) {
         addAlarmList(element);
