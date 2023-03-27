@@ -436,7 +436,7 @@ function removeWarning() {
 function pushNotification() {
     Push.create('Alarm Ringing!', {
         body: 'Your Alarm is Ringing!',
-        icon: './images/alarm-clock.gif',
+        icon: 'https://em-content.zobj.net/source/microsoft-teams/337/alarm-clock_23f0.png',
         timeout: 60000,
         onClick: function() {
             console.log('Notification clicked');
