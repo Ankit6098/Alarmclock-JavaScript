@@ -26,6 +26,8 @@ const snoozeText = document.querySelector('.snooze-text');
 alarmRingtone = new Audio("./ringtones/alexa ringtone.mp3");
 let alarmListArr = [];
 
+//  local storage
+
 let retrieveAlarm = JSON.parse(localStorage.getItem('local'));
 
 if (retrieveAlarm !== null) {
@@ -46,28 +48,41 @@ function updateTime() {
     const day = getDay(date.getDay());
     const currentDate = formatTime(date.getDate());
     const ampm = hour >= 12 ? 'PM' : 'AM';
+    let calculatedHour;
+
 
     // 24hr /12hr toggle
     if (localTime) {
         displayHour.innerHTML = hour;
         displayhr.innerHTML = '24hr';
         playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
+        console.log(calculatedHour, minute, second, ampm);
     } else {
         if (hour > 12) {
-            var calculatedHour = hour - 12;
+            calculatedHour = hour - 12;
             if (calculatedHour < 10) {
                 displayHour.innerHTML = '0' + calculatedHour;
                 displayhr.innerHTML = '12hr';
                 playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
+                console.log(calculatedHour, minute, second, ampm);
             } else {
                 displayHour.innerHTML = calculatedHour;
                 displayhr.innerHTML = '12hr';
                 playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
+                console.log(calculatedHour, minute, second, ampm);
             }
+        } else if (hour == 0) {
+            calculatedHour = 12;
+            displayhr.innerHTML = '12hr';
+            displayHour.innerHTML = calculatedHour;
+            playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
+            console.log(calculatedHour, minute, second, ampm);
         } else {
-            displayHour.innerHTML = hour;
+            calculatedHour = Number(hour);
+            displayHour.innerHTML = "0" + calculatedHour;
             displayhr.innerHTML = '12hr';
             playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
+            console.log(calculatedHour, minute, second, ampm);
         }
     }
 
@@ -101,6 +116,7 @@ function playAlarm(calculatedHour, hour, minute, min, second, sec, ampm) {
                 console.log("Brwoser doesn't play audio without user interaction after page load");
                 showWarning("Warning: User interaction is required!");
             });
+            pushNotification();
             alarmRingtone.loop = true;
             alarmRingning.style.display = 'block';
             snooze.style.display = 'block';
@@ -412,4 +428,18 @@ function showWarning(msg) {
 
 function removeWarning() {
     warning.classList.add('remove');
+}
+
+
+// push notification
+
+function pushNotification() {
+    Push.create('Alarm Ringing!', {
+        body: 'Your Alarm is Ringing!',
+        icon: './images/alarm-clock.gif',
+        timeout: 60000,
+        onClick: function() {
+            console.log('Notification clicked');
+        }
+    });
 }
