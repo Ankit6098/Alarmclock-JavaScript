@@ -26,6 +26,7 @@ const snoozeText = document.querySelector('.snooze-text');
 alarmRingtone = new Audio("./ringtones/alexa ringtone.mp3");
 let alarmListArr = [];
 
+
 //  local storage
 
 let retrieveAlarm = JSON.parse(localStorage.getItem('local'));
@@ -86,7 +87,7 @@ function updateTime() {
         }
     }
 
-    // console.log(calculatedHour, minute, second, ampm);
+    console.log(calculatedHour, minute, second, ampm);
 
     // display clock
     displayMinute.innerHTML = minute;
@@ -116,7 +117,7 @@ function playAlarm(calculatedHour, hour, minute, min, second, sec, ampm) {
                 console.log("Brwoser doesn't play audio without user interaction after page load");
                 showWarning("Warning: User interaction is required!");
             });
-            pushNotification();
+            alarmRingtone.play();
             alarmRingtone.loop = true;
             alarmRingning.style.display = 'block';
             snooze.style.display = 'block';
@@ -269,8 +270,7 @@ setAlarmButton.onclick = function () {
 
         alarmListArr.push(alarmTime);
         console.log(alarmTime);
-        // addAlarmList(alarmTime);
-        renderList();
+        addAlarmList(alarmTime);
 
         hourInput.value = "";
         minuteInput.value = "";
@@ -300,7 +300,7 @@ function addAlarmList(alarmTime) {
                     ${alarmTime.secInput}
                 </span>
                 <span class = list-am-pm-info>
-                    ${alarmTime.ampmInput}
+                    ${ampmInput}
                 </span>
                 </div>
             </div>
@@ -379,7 +379,6 @@ document.addEventListener('click', function (e) {
 
 function renderList() {
     console.log('Item Rendered!');
-    localStorage.setItem('local', JSON.stringify(alarmListArr));
     alarmList.innerHTML = '';
     for (let element of alarmListArr) {
         addAlarmList(element);
@@ -428,18 +427,4 @@ function showWarning(msg) {
 
 function removeWarning() {
     warning.classList.add('remove');
-}
-
-
-// push notification
-
-function pushNotification() {
-    Push.create('Alarm Ringing!', {
-        body: 'Your Alarm is Ringing!',
-        icon: 'https://em-content.zobj.net/source/microsoft-teams/337/alarm-clock_23f0.png',
-        timeout: 60000,
-        onClick: function() {
-            console.log('Notification clicked');
-        }
-    });
 }
