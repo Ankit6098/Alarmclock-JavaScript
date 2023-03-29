@@ -62,6 +62,7 @@ function updateTime() {
         console.log(calculatedHour, minute, second, ampm);
     } else {
         if (hour > 12) {
+            console.log("in1");
             calculatedHour = hour - 12;
             if (calculatedHour < 10) {
                 displayHour.innerHTML = '0' + calculatedHour;
@@ -74,13 +75,23 @@ function updateTime() {
                 playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
                 console.log(calculatedHour, minute, second, ampm);
             }
-        } else if (hour == 0 && minute == 0 && second == 0 && ampm == 'AM') {
+        } else if (hour == 0 && ampm == 'AM') {
+            console.log("in2");
             calculatedHour = 12;
             displayhr.innerHTML = '12hr';
             displayHour.innerHTML = calculatedHour;
             playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
             console.log(calculatedHour, minute, second, ampm);
-        } else {
+        } else if (hour == 12 && ampm == 'PM'){
+            console.log("in3");
+            calculatedHour = 12;
+            displayHour.innerHTML = calculatedHour;
+            displayhr.innerHTML = '12hr';
+            playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
+            console.log(calculatedHour, minute, second, ampm);
+        }
+        else {
+            console.log("in4");
             calculatedHour = Number(hour);
             displayHour.innerHTML = "0" + calculatedHour;
             displayhr.innerHTML = '12hr';
