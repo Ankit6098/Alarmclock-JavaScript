@@ -37,7 +37,8 @@ if (retrieveAlarm !== null) {
 }
 
 
-// time update
+// time
+
 function updateTime() {
     const date = new Date();
     const hour = formatTime(date.getHours());
@@ -53,6 +54,7 @@ function updateTime() {
 
 
     // 24hr /12hr toggle
+
     if (localTime) {
         displayHour.innerHTML = hour;
         displayhr.innerHTML = '24hr';
@@ -72,7 +74,7 @@ function updateTime() {
                 playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
                 console.log(calculatedHour, minute, second, ampm);
             }
-        } else if (hour == 0) {
+        } else if (hour == 0 && minute == 0 && second == 0 && ampm == 'AM') {
             calculatedHour = 12;
             displayhr.innerHTML = '12hr';
             displayHour.innerHTML = calculatedHour;
@@ -313,7 +315,7 @@ function addAlarmList(alarmTime) {
 }
 
 
-// stop alarm 
+// stop alarm
 
 const stopAlarm = document.getElementsByTagName('text')[0];
 
