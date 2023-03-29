@@ -29,7 +29,7 @@ let alarmListArr = [];
 
 //  local storage
 
-let retrieveAlarm = JSON.parse(localStorage.getItem('local'));
+let retrieveAlarm = JSON.parse(localStorage.getItem('LocalStorage'));
 
 if (retrieveAlarm !== null) {
     alarmListArr = [...retrieveAlarm];
@@ -272,7 +272,7 @@ setAlarmButton.onclick = function () {
 
         alarmListArr.push(alarmTime);
         console.log(alarmTime);
-        addAlarmList(alarmTime);
+        renderList();
 
         hourInput.value = "";
         minuteInput.value = "";
@@ -302,7 +302,7 @@ function addAlarmList(alarmTime) {
                     ${alarmTime.secInput}
                 </span>
                 <span class = list-am-pm-info>
-                    ${ampmInput}
+                    ${alarmTime.ampmInput}
                 </span>
                 </div>
             </div>
@@ -381,6 +381,7 @@ document.addEventListener('click', function (e) {
 
 function renderList() {
     console.log('Item Rendered!');
+    localStorage.setItem('LocalStorage', JSON.stringify(alarmListArr));
     alarmList.innerHTML = '';
     for (let element of alarmListArr) {
         addAlarmList(element);
