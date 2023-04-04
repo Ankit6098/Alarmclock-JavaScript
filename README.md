@@ -25,6 +25,8 @@ https://alarm-clock-javascript.netlify.app/
 - ☀ Light / 🌙 dark mode toggle
 - 🕣 Digital Clock
 - ✅ Set Multiple Alarm / ❎ Delete Alarm
+- 💾 Local Storage for ALarm List
+- 🔔 Push notification
 - Fully Responsive 🖥 Desktop / 💻 Laptop / 📱 Mobile
 ## Run Locally
 
