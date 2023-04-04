@@ -130,11 +130,11 @@ function playAlarm(calculatedHour, hour, minute, min, second, sec, ampm) {
                 console.log("Brwoser doesn't play audio without user interaction after page load");
                 showWarning("Warning: User interaction is required!");
             });
-            alarmRingtone.play();
             alarmRingtone.loop = true;
             alarmRingning.style.display = 'block';
             snooze.style.display = 'block';
             snoozeText.style.display = 'block';
+            pushNotification();
         }
     }
 }
@@ -441,4 +441,20 @@ function showWarning(msg) {
 
 function removeWarning() {
     warning.classList.add('remove');
+}
+
+
+// popup notification section
+
+function pushNotification() {
+    console.log('push notification');
+    Push.create("Alarm!!!", {
+        body: "Your alarm is ringing'?",
+        icon: 'https://em-content.zobj.net/source/microsoft-teams/337/alarm-clock_23f0.png',
+        timeout: 4000,
+        onClick: function () {
+            window.focus();
+            this.close();
+        }
+    });
 }
