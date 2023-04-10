@@ -92,11 +92,19 @@ function updateTime() {
         }
         else {
             console.log("in4");
-            calculatedHour = Number(hour);
-            displayHour.innerHTML = "0" + calculatedHour;
-            displayhr.innerHTML = '12hr';
-            playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
-            console.log(calculatedHour, minute, second, ampm);
+            if (hour < 9) {
+                calculatedHour = Number(hour);
+                displayHour.innerHTML = "0" + calculatedHour;
+                displayhr.innerHTML = '12hr';
+                playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
+                console.log(calculatedHour, minute, second, ampm);
+            } else {
+                calculatedHour = Number(hour);
+                displayHour.innerHTML = calculatedHour;
+                displayhr.innerHTML = '12hr';
+                playAlarm(calculatedHour, hour, minute, min, second, sec, ampm);
+                console.log(calculatedHour, minute, second, ampm);
+            }
         }
     }
 
