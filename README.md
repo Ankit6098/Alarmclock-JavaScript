@@ -49,6 +49,20 @@ Run the Application
 ```
 
 
+## Appendix
+
+Any additional information goes here
+
+LocalStorage is a data storage type of web storage. This allows the JavaScript sites and apps to store and access the data without any expiration date. This means that the data will always be persisted and will not expire. So, data stored in the browser will be available even after closing the browser window. 
+
+So here one thing is to notice that after refreshing the page alarm application will not play the audio while alarm is ringing beacuase, there is no method to play an alarm sound without user interaction in modern web browsers, due to security reasons. Browsers have implemented autoplay policies to prevent websites from playing audio or video without user interaction. This policy ensures that web pages do not play any sounds that could be annoying or harmful to users.
+
+One way to work around the autoplay policy is to play the alarm sound as part of an event handler that is triggered by a user interaction. For example, you could create a button that the user has to click to play the sound. Then, when the page refreshes, you could automatically trigger the click event on that button using JavaScript.
+
+It will work in some cases where MEI is a metric that measures a user's media consumption on a website. It tracks how much media content is played with or without user interaction. If a user has a high MEI score on a particular website, the browser will allow autoplaying of media content on that site. This is because the user has demonstrated a preference for consuming media on that site, and the browser assumes that they would like to continue doing so.
+
+You can Check Your MEI chrome://media-engagement/
+
 
 ## Screenshots
 
